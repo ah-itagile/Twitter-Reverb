@@ -31,15 +31,27 @@ myTweetDecorator = function(tweet, options) {
 	if (options.tweetBodyDecorator) {
 		html += options.tweetBodyDecorator(tweet, options);
 	}
-	for (i = 0; i < tweet.retweet_count; i++) {
-		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
-	}
 	html += 'Reverb:' + tweet.retweet_count;
+	html += createReverbBar(tweet.retweet_count);
 	html += '<div class="jta-clear">&nbsp;</div>';
 
 	return '<li class="jta-tweet-list-item">' + html + '</li>';
 };
 
+createReverbBar = function(retweet_count) {
+	var MAX_REVERB_BIRDS = 50;
+	var html = '';
+	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS: retweet_count;
+	for (i = 0; i < retweet_count; i++) {
+		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
+	}
+	if (retweet_count > MAX_REVERB_BIRDS) {
+		html += '..';
+		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
+	}
+	return html;
+
+}
 $(document).ready(function() {
 	var twittername = getUrlVars()['twittername'];
 	var listname = getUrlVars()['listname'];
