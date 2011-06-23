@@ -46,8 +46,8 @@ createReverbBar = function(retweet_count) {
 		retweet_count = MAX_REVERB_BIRDS + 1;
 	}
 	var html = '';
-	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS: retweet_count;
-	for (i = 0; i < retweet_count; i++) {
+	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS : retweet_count;
+	for (i = 0; i < birds; i++) {
 		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
 	}
 	if (retweet_count > MAX_REVERB_BIRDS) {
@@ -56,7 +56,7 @@ createReverbBar = function(retweet_count) {
 	}
 	return html;
 
-}
+};
 $(document).ready(function() {
 	var twittername = getUrlVars()['twittername'];
 	var listname = getUrlVars()['listname'];
