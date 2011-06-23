@@ -1,6 +1,8 @@
-var revlevel = 1;
+var revlevel = 0;
 var filtered = 0;
 var debug = false;
+var reverb_for_hundredplus = 100;
+var hundredplus_from_twitter = '100+';
 
 function getUrlVars() {
 	var vars = {};
@@ -11,7 +13,7 @@ function getUrlVars() {
 }
 
 myTweetFilter = function(tweet, options) {
-	var enough_reverb = tweet.retweet_count >= revlevel;
+	var enough_reverb = tweet.retweet_count == hundredplus_from_twitter || tweet.retweet_count >= revlevel;
 	if (!enough_reverb) {
 		filtered++;
 		$('#filtered').html('Filtered: ' + filtered);
@@ -40,6 +42,9 @@ myTweetDecorator = function(tweet, options) {
 
 createReverbBar = function(retweet_count) {
 	var MAX_REVERB_BIRDS = 50;
+	if (retweet_count == hundredplus_from_twitter) {
+		retweet_count = MAX_REVERB_BIRDS + 1;
+	}
 	var html = '';
 	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS: retweet_count;
 	for (i = 0; i < retweet_count; i++) {
@@ -64,10 +69,10 @@ $(document).ready(function() {
 	});
 	$('#slider').slider();
 	$('#slider').slider({
-		orientation: 'vertical',
+		orientation: 'horizontal',
 		slide: function(event, ui) {
 			revlevel = ui.value;
-			$('#reverb_level').html('Reverb level :' + ui.value);
+			$('#reverb_level').html('Reverb filter level :' + ui.value);
 		},
 		change: function(event, ui) {
 			load_tweets();
@@ -83,7 +88,7 @@ load_tweets = function() {
 	$('#tweetFeed').jTweetsAnywhere({
 		username: twittername,
 		list: listname,
-		count: 5,
+		count: 20,
 		tweetFilter: myTweetFilter,
 		showTweetFeed: {
 			paging: {

@@ -1,0 +1,25 @@
+#control_panel{
+  display: table;
+}
+
+#toprow{
+  display: table-row;
+}
+#left{
+  display: table-cell;
+  background-color: #ffffff;
+  vertical-align:middle;
+}
+#right{
+  display: table-cell;
+  background-color: #ffffff;
+  vertical-align:middle;
+}
+#center{
+  display: table-cell;
+  background-color: #ffffff;
+}
+#slider{
+  margin-top: 1.5em;
+  margin-bottom: 0.2em;
+}

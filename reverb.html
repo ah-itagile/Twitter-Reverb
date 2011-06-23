@@ -12,15 +12,27 @@
 
     <script type="text/javascript" src="reverb.js"></script>
     <link rel="stylesheet" type="text/css" href="jquery.jtweetsanywhere-1.2.1.css" />
+    <link rel="stylesheet" type="text/css" href="reverb.css" />
 </head> 
 <body>
-    <img src="reverb_sq_b_s_s.jpg" />
+  <div id="control_panel" >
+  <div id=toprow" >
+   <div id="left">
     Twitter name: <input type="text" id="twittername" name="twittername" value=""/>
+    <br/>
     List name: <input type="text" id="listname" name="list" value=""/>
-    <button id="go_button">Go!</button>
-    <div id="reverb_level">Reverb level: 0</div>
-    <div id="filtered">0</div>
+    <button id="go_button" hidden="true">Go!</button>
     <div id="slider"></div>
+    <div id="reverb_level">Reverb filter level: 0</div>
+    </div>
+     <div id="center">
+      <img src="reverb_sq_b_s_s.jpg" />
+    </div>
+    <div id="right">
+    <div id="filtered">Filtered: 0</div>
+    </div>
+  </div>
+  </div>
     <div id="tweetFeed">
     </div>
 </body>
