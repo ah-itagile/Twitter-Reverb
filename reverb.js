@@ -31,6 +31,9 @@ myTweetDecorator = function(tweet, options) {
 	if (options.tweetBodyDecorator) {
 		html += options.tweetBodyDecorator(tweet, options);
 	}
+	for (i = 0; i < tweet.retweet_count; i++) {
+		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
+	}
 	html += 'Reverb:' + tweet.retweet_count;
 	html += '<div class="jta-clear">&nbsp;</div>';
 
@@ -40,7 +43,7 @@ myTweetDecorator = function(tweet, options) {
 $(document).ready(function() {
 	var twittername = getUrlVars()['twittername'];
 	var listname = getUrlVars()['listname'];
-debug = getUrlVars()['debug'];
+	debug = getUrlVars()['debug'];
 	$('#twittername').val(twittername);
 	$('#listname').val(listname);
 
@@ -69,20 +72,25 @@ load_tweets = function() {
 		list: listname,
 		count: 5,
 		tweetFilter: myTweetFilter,
+		showTweetFeed: {
+			paging: {
+				mode: 'more'
+			}
+		},
 		tweetDecorator: myTweetDecorator,
 		showTweetBox: {
 			label: '<span style="color: #D1C7BA">Spread the word ...</span>'
 		}
 	});
-if (debug){
-	$('#tweetFeed').jTweetsAnywhere({
-		username: 'andreashhh',
-		list: 'rvrb',
-		count: 5,
-		showTweetBox: {
-			label: '<span style="color: #D1C7BA">Spread the word ...</span>'
-		}
-	});
-}
+	if (debug) {
+		$('#tweetFeed').jTweetsAnywhere({
+			username: 'andreashhh',
+			list: 'rvrb',
+			count: 5,
+			showTweetBox: {
+				label: '<span style="color: #D1C7BA">Spread the word ...</span>'
+			}
+		});
+	}
 };
 
