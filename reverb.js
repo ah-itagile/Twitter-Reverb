@@ -64,6 +64,7 @@ $(document).ready(function() {
 	});
 	$('#slider').slider();
 	$('#slider').slider({
+		orientation: 'vertical',
 		slide: function(event, ui) {
 			revlevel = ui.value;
 			$('#reverb_level').html('Reverb level :' + ui.value);
