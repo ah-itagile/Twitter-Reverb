@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Reverb" errors="0" tests="5" failures="0" time="1.073" timestamp="2011-08-08T10:07:21">
+  <testcase classname="Reverb" name="should accept tweets with 0 retweets if no reverb level is set" time="0.403"></testcase>
+  <testcase classname="Reverb" name="should filter a tweet with a retweet count smaller than the reverb level" time="0.348"></testcase>
+  <testcase classname="Reverb" name="should accept a tweet with a retweet count of &apos;100+&apos;" time="0.088"></testcase>
+  <testcase classname="Reverb" name="should render 2 birds if the retweet count is 2" time="0.046"></testcase>
+  <testcase classname="Reverb" name="should render 50 birds with &apos;..&apos; if the retweet count is more than 50" time="0.182"></testcase>
+</testsuite>
+</testsuites>
