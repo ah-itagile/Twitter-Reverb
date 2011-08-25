@@ -58,11 +58,8 @@ createReverbBar = function(retweet_count) {
 
 };
 $('div').live('pagecreate', function(){
-  alert('create');
-$('#go_button').live('click', function() {
-		alert('xxx');
-	});
-$('#testbutton').live('click', function(){
+ /* ('create'); */
+$('#go_button').live('click', function(){
 console.log('go clicked');
 load_tweets();
 });
@@ -80,13 +77,11 @@ $(document).ready(function() {
 		load_tweets();
 	});
 */
-	$('#go_button').live('click', function() {
+/*	$('#go_button').live('click', function() {
 		alert('xxx');
 	});
-
-alert('hurra');
+*/
 $("#aslider").live('change', function(event, ui){
-//alert('xyx');
 revlevel = this.value;
 console.log('slider changed:'  + revlevel);
 	/*		load_tweets();*/

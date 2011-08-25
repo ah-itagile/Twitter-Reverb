@@ -16,45 +16,63 @@
 		<link rel="stylesheet" type="text/css" href="reverb.css" />
 	</head> 
 	<body>
-		<div data-role="page">
+		<div data-role="page" id="startpage">
 
 			<div data-role="header">
-				<h1>Page Title</h1>
+				<h1>Twitter Reverb</h1>
 			</div><!-- /header -->
 
 			<div data-role="content">	
 				<div id="control_panel" >
+									<div id="top">
+							<img src="reverb_sq_b_s_s.jpg" />
+						</div>
 					<div id=toprow" >
 						<div id="left">
 							Twitter name: <input type="text" id="twittername" name="twittername" value=""/>
 							<br/>
 							List name: <input type="text" id="listname" name="list" value=""/>
-							<button id="go_button" hidden="true">Go!</button>
-							<a href='#' id="testbutton" data-role='button'>start</a>
+							<!-- <button id="go_button" hidden="true">Go!</button> -->
+							<a href='#' id="go_button" data-role='button'>Go!</a>
+							<div>Reverb filter level</div>
 							<div data-role="fieldcontain">
-								<label for="aslider">Reverb level:</label>
-
+     							<!--	<label for="aslider">Reverb level:</label> --> 
 								<input type="range" name="aslider" id="aslider" value="0" min="0" max="100"  />
 							</div>
-							<div id="reverb_level">Reverb filter level: 0</div>
 						</div>
-						<div data-role="none" id="tweetFeed"></div>
-						<div id="center">
-							<img src="reverb_sq_b_s_s.jpg" />
-						</div>
-						<div id="right">
+						<div id="bottom">
 							<div id="filtered">Filtered: 0</div>
 						</div>
 					</div>
 				</div>
-			</div>
+
 
 		</div><!-- /content -->
 
-		<div data-role="footer">
-			<h4>Page Footer</h4>
+		    <div data-role="footer">
+			<h4>Twitter Reverb</h4>
 		</div><!-- /footer -->
-		</body>
-	</html>
+			<p>View internal page called <a href="#results">results</a></p>
+		</div>
+		
+		<!-- Result page -->
+		<div data-role="page" id="results">
+
+			<div data-role="header">
+				<h1>Results</h1>
+			</div><!-- /header -->
+
+			<div data-role="content">	
+									<div data-role="none" id="tweetFeed"></div>
+				<p>I'm first in the source order so I'm shown as the page.</p>		
+				<p><a href="#startpage">Back</a></p>	
+			</div><!-- /content -->
+
+			<div data-role="footer">
+				<h4>REVERB results</h4>
+			</div><!-- /footer -->
+		</div><!-- /result page -->
+	</body>
+</html>
 
 
