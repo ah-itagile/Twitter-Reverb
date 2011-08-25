@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>REVERB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.css" />
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="jquery.jtweetsanywhere-1.2.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+
+
+    <script type="text/javascript" src="reverb.m.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery.jtweetsanywhere-1.2.1.css" />
+    <link rel="stylesheet" type="text/css" href="reverb.css" />
+</head> 
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+  <div id="control_panel" >
+  <div id=toprow" >
+   <div id="left">
+    Twitter name: <input type="text" id="twittername" name="twittername" value=""/>
+    <br/>
+    List name: <input type="text" id="listname" name="list" value=""/>
+    <button id="go_button" hidden="true">Go!</button>
+<a href='#' id="testbutton" data-role='button'>start</a>
+<div data-role="fieldcontain">
+	<label for="aslider">Reverb level:</label>
+
+<input type="range" name="aslider" id="aslider" value="0" min="0" max="100"  />
+</div>
+    <div id="reverb_level">Reverb filter level: 0</div>
+    </div>
+     <div id="center">
+      <img src="reverb_sq_b_s_s.jpg" />
+    </div>
+    <div id="right">
+    <div id="filtered">Filtered: 0</div>
+    </div>
+  </div>
+  </div>
+    </div>
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+    <div data-role="none" id="tweetFeed">
+</body>
+</html>
+
+
