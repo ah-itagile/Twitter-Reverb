@@ -46,7 +46,7 @@ createReverbBar = function(retweet_count) {
 		retweet_count = MAX_REVERB_BIRDS + 1;
 	}
 	var html = '';
-	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS : retweet_count;
+	var birds = retweet_count > MAX_REVERB_BIRDS ? MAX_REVERB_BIRDS: retweet_count;
 	for (i = 0; i < birds; i++) {
 		html += "<img src=\"twitter_newbird_blue.png\" width=\"15\" height=\"15\" />";
 	}
@@ -57,15 +57,14 @@ createReverbBar = function(retweet_count) {
 	return html;
 
 };
-$('div').live('pagecreate', function(){
- /* ('create'); */
-$('#go_button').live('click', function(){
-console.log('go clicked');
-load_tweets();
-console.log('location:'+ location.href);
-if (! /#results$/.test(location.href))
-	location.href=location.href + '#results';
-});
+$('div').live('pagecreate', function() {
+	/* ('create'); */
+	$('#go_button').live('click', function() {
+		console.log('go clicked');
+		load_tweets();
+		console.log('location:' + location.href);
+		if (!/#results$/.test(location.href)) location.href = location.href + '#results';
+	});
 
 });
 
@@ -75,28 +74,27 @@ $(document).ready(function() {
 	debug = getUrlVars()['debug'];
 	$('#twittername').val(twittername);
 	$('#listname').val(listname);
-/*
+	/*
 	$('#go_button').click(function() {
 		load_tweets();
 	});
 */
-/*	$('#go_button').live('click', function() {
+	/*	$('#go_button').live('click', function() {
 		alert('xxx');
 	});
 */
-$("#aslider").live('change', function(event, ui){
-revlevel = this.value;
-console.log('slider changed:'  + revlevel);
-	/*		load_tweets();*/
-		}
-	);
+	$("#aslider").live('change', function(event, ui) {
+		revlevel = this.value;
+		console.log('slider changed:' + revlevel);
+		/*		load_tweets();*/
+	});
 });
 
 load_tweets = function() {
 	filtered = 0;
 	var twittername = $('#twittername').val();
 	var listname = $('#listname').val();
-x = $('#tweetFeed'); 
+	x = $('#tweetFeed');
 	$('#tweetFeed').empty();
 	$('#tweetFeed').jTweetsAnywhere({
 		username: twittername,
