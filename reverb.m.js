@@ -16,7 +16,7 @@ myTweetFilter = function(tweet, options) {
 	var enough_reverb = tweet.retweet_count == hundredplus_from_twitter || tweet.retweet_count >= revlevel;
 	if (!enough_reverb) {
 		filtered++;
-		$('#filtered').html('Filtered: ' + filtered);
+		$('#filtered').text('Filtered: ' + filtered);
 	}
 	return enough_reverb;
 };
@@ -62,6 +62,9 @@ $('div').live('pagecreate', function(){
 $('#go_button').live('click', function(){
 console.log('go clicked');
 load_tweets();
+console.log('location:'+ location.href);
+if (! /#results$/.test(location.href))
+	location.href=location.href + '#results';
 });
 
 });
